@@ -8,15 +8,6 @@ contract Bank {
     event depositDone(uint amount, address indexed addedTo);
     event transferDone(address indexed recipient, uint amount, address indexed sender);
 
-    modifier onlyOwner {
-        require(msg.sender == owner);
-        _;
-    }
-
-    modifier costs(uint price) {
-        require(msg.value >= price);
-        _;
-    }
 
     function deposit() public payable returns (uint){
         balance[msg.sender] += msg.value;
