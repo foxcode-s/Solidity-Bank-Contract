@@ -18,12 +18,6 @@ contract Bank {
         _;
     }
 
-
-
-    constructor(){
-        owner = msg.sender;
-    }
-
     function deposit() public payable returns (uint){
         balance[msg.sender] += msg.value;
         emit depositDone(msg.value, msg.sender);
